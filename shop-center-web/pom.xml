@@ -11,6 +11,19 @@
 
     <artifactId>shop-center-web</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.kkb</groupId>
+            <artifactId>shop-center-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.kkb</groupId>
+            <artifactId>shop-center-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
