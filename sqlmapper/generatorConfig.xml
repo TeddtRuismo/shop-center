@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--数据库驱动,最好不要有中文字符,不然会找不到,使用绝对地址更加稳定-->
+    <!--
+    <classPathEntry location="/Users/hadoop/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
+    -->
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址、账号、密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/shop-center?characterEncoding=utf8&amp;useSSL=true"
+                        userId="root"
+                        password="1996yr1223">
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+			NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.kkb.shopcenter.pojo" targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="com.kkb.shopcenter.mapper" targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 --><!--targetProject="src"-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kkb.shopcenter.mapper" targetProject="./src">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表及类名,需要记住的一点是逆向工程无法生成关联关系,只能生成单表操作-->
+        <!-- 指定数据库表 -->
+        <!--
+            tableName:要生成的表名
+               domainObjectName:生成后的实例名
+            enableCountByExample:Count语句中加入where条件查询，默认true开启
+            enableUpdateByExample:Update语句中加入where条件查询，默认true开启
+            enableDeleteByExample:Delete语句中加入where条件查询，默认true开启
+            enableSelectByExample:Select多条语句中加入where条件查询，默认true开启
+            selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认true开启
+         -->
+
+        <table tableName="items">
+            <!--
+                常用：
+                property:将所有字段逆向生成为类属性，默认全部
+                ignoreColumn:生成时忽略列字段
+             -->
+        </table>
+        <table tableName="user_info"></table>
+    </context>
+
+</generatorConfiguration>
+
